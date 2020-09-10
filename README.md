@@ -1,30 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Public Storybook with Next.js
 
-## Getting Started
+This simple repository shows how you can build and deploy your [Storybook](https://storybook.js.org/) together with your [Next.js](https://nextjs.org/) application.
 
-First, run the development server:
+## How to publicly deploy storybook with Next.js
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- Use an existing Next.js project, or create a new one with `yarn create next-app`.
+- Install Storybook if you havn't already, with `npx sb init`.
+- In your `package.json` file,
+  - Modify the `build-storybook` script to output to the `/public/storybook` folder with
+    ```
+    scripts: {
+      ...
+      "build-storybook": "build-storybook -o ./public/storybook"
+      ...
+    }
+    ```
+  - Modify the `build` script to build the storybook before the Next.js application.
+    ```
+    scripts: {
+      ...
+      "build": "yarn build-storybook && next build"
+      ...
+    }
+    ```
+- Add `/public/storybook` to your `.gitignore`, to avoid your Storybook output being added to your git repository.
+- If you are deploying to a platform like Vercel:
+  - Make sure that your hosting platform's build command is `yarn build` (or `npm build` if you're using `npm`), and not `next build` or similar. This will ensure that your deployment platform will build your Storybook before your Next.js application.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+🎉🎊 Now, your storybook will be accessible under `your-site.com/storybook/index.html`
