@@ -27,4 +27,4 @@ This simple repository shows how you can build and deploy your [Storybook](https
 - If you are deploying to a platform like Vercel:
   - Make sure that your hosting platform's build command is `yarn build` (or `npm build` if you're using `npm`), and not `next build` or similar. This will ensure that your deployment platform will build your Storybook before your Next.js application.
 
-🎉🎊 Now, your storybook will be accessible under `your-site.com/storybook/index.html`
+Congratulations! 🎉🎊 Now your storybook will be accessible at `your-site.com/storybook/index.html`
