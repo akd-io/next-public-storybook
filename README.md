@@ -25,6 +25,6 @@ This simple repository shows how you can build and deploy your [Storybook](https
     ```
 - Add `/public/storybook` to your `.gitignore`, to avoid your Storybook output being added to your git repository.
 - If you are deploying to a platform like Vercel:
-  - Make sure that your hosting platform's build command is `yarn build` (or `npm build` if you're using `npm`), and not `next build` or similar. This will ensure that your deployment platform will build your Storybook before your Next.js application.
+  - Make sure that your hosting platform's build command is `yarn build` or `npm build`, and not `next build`. This will ensure that your deployment platform will build your Storybook before your Next.js application.
 
 Congratulations! 🎉🎊 Now your storybook will be accessible at `your-site.com/storybook/index.html`
